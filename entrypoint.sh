@@ -6,10 +6,6 @@ if [[ -z $OVH_HOSTING_USER || -z $OVH_HOSTING_PASSWORD || -z $OVH_HOSTING_DOMAIN
   exit 1
 fi
 
-cd /var/www/alexishayat.me
-git reset --hard origin/master
-composer install
-npm i
-service nginx restart
+echo 'cd /var/www/alexishayat.me && git reset --hard origin/master && rm -rf vendor/* && composer install && composer dump-autoload && npm ci && service nginx restart'
 
 echo 'Done.'
