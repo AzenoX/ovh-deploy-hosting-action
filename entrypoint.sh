@@ -6,6 +6,6 @@ if [[ -z $OVH_HOSTING_USER || -z $OVH_HOSTING_PASSWORD || -z $OVH_HOSTING_DOMAIN
   exit 1
 fi
 
-sshpass -p "$SECRET_PASS" ssh git@github.com "cd /var/www/$DOMAIN && git reset --hard origin/master && rm -rf vendor/* && composer install && composer dump-autoload && npm ci && service nginx restart"
+sshpass -p "$SECRET_PASS" ssh -o StrictHostKeyChecking=no git@github.com "cd /var/www/$DOMAIN && git reset --hard origin/master && rm -rf vendor/* && composer install && composer dump-autoload && npm ci && service nginx restart"
 
 echo 'Done.'
