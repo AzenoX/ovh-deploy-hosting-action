@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Check if needed env vars are available
 if [[ -z $OVH_HOSTING_USER || -z $OVH_HOSTING_PASSWORD || -z $OVH_HOSTING_DOMAIN || -z $REPOSITORY_URL || -z $DOMAIN ]]; then
