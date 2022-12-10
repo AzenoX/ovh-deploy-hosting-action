@@ -6,6 +6,6 @@ if [[ -z $OVH_HOSTING_USER || -z $OVH_HOSTING_PASSWORD || -z $OVH_HOSTING_DOMAIN
   exit 1
 fi
 
-sshpass -i ~/.ssh/github git@github.com -p "$OVH_HOSTING_PASSWORD" ssh -o StrictHostKeyChecking=no $OVH_HOSTING_USER@$OVH_HOSTING_DOMAIN "sh ~/deploys/default $DOMAIN"
+sshpass -p "$OVH_HOSTING_PASSWORD" ssh -i ~/.ssh/github git@github.com -o StrictHostKeyChecking=no $OVH_HOSTING_USER@$OVH_HOSTING_DOMAIN "sh ~/deploys/default $DOMAIN"
 
 echo 'Done.'
